@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Planner {
 
@@ -32,7 +31,7 @@ namespace Planner {
     }
 
     public override string ToString () {
-      return ($"Address: {Address}, Constructed On: {dateConstructed},Owned By: {Owner}, Volume: {Volume} cubic meters of space");
+      return ($"Address: {Address}, Constructed On: {dateConstructed}, Owned By: {Owner}, Volume: {Volume} cubic meters of space");
     }
   }
 }

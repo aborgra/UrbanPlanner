@@ -4,34 +4,45 @@ namespace Planner {
     class Program {
         static void Main (string[] args) {
 
-            Building NSS = new Building ("301 Plus Park Ave") {
+            Building nss = new Building ("301 Plus Park Ave") {
                 Width = 250,
                 Depth = 250,
                 Stories = 5
             };
 
-            NSS.Construct ();
-            NSS.Purchase ("Steve");
-            Console.WriteLine (NSS.ToString ());
+            nss.Construct ();
+            nss.Purchase ("Steve");
+            // Console.WriteLine (nss.ToString ());
 
-            Building OldNSS = new Building ("500 Interstate Blvd S");
-            OldNSS.Width = 150;
-            OldNSS.Depth = 150;
-            OldNSS.Stories = 3;
+            Building oldNSS = new Building ("500 Interstate Blvd S");
+            oldNSS.Width = 150;
+            oldNSS.Depth = 150;
+            oldNSS.Stories = 3;
 
-            OldNSS.Construct ();
-            OldNSS.Purchase ("John");
-            Console.WriteLine (OldNSS.ToString ());
+            oldNSS.Construct ();
+            oldNSS.Purchase ("John");
+            // Console.WriteLine (oldNSS.ToString ());
 
-            Building House = new Building ("1201 First Str") {
+            Building house = new Building ("1201 First Str") {
                 Width = 100,
                 Depth = 100,
                 Stories = 1
             };
 
-            House.Construct ();
-            House.Purchase ("Mom");
-            Console.WriteLine (House.ToString ());
+            house.Construct ();
+            house.Purchase ("Mom");
+            // Console.WriteLine (house.ToString ());
+
+            City nashville = new City ("Nashville", 1800, "John Cooper");
+
+            nashville.AddCityBuilding (nss);
+            nashville.AddCityBuilding (oldNSS);
+            nashville.AddCityBuilding (house);
+
+            Console.WriteLine ($"City: {nashville.CityName}, Mayor: {nashville.MayorName}, Established: {nashville.Year}. City buildings: ");
+            foreach (Building building in nashville.CityBuildings) {
+                Console.WriteLine (building.ToString ());
+            }
 
         }
     }
